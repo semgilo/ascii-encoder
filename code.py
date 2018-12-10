@@ -19,10 +19,10 @@ def encode_ascii(content, encode_key):
         delt_value = 0
         
         if key_bit_value >= ACSII_a and key_bit_value <= ACSII_z:
-            delt_value = key_bit_value - ACSII_a + 1
+            delt_value = key_bit_value - ACSII_a
             pass
         elif key_bit_value >= ACSII_A and key_bit_value <= ACSII_Z:
-            delt_value = key_bit_value - ACSII_A + 1
+            delt_value = key_bit_value - ACSII_A
             pass
         pass
 
@@ -52,10 +52,10 @@ def decode_ascii(content, encode_key):
         delt_value = 0
         
         if key_bit_value >= ACSII_a and key_bit_value <= ACSII_z:
-            delt_value = key_bit_value - ACSII_a + 1
+            delt_value = key_bit_value - ACSII_a
             pass
         elif key_bit_value >= ACSII_A and key_bit_value <= ACSII_Z:
-            delt_value = key_bit_value - ACSII_A + 1
+            delt_value = key_bit_value - ACSII_A
             pass
         pass
 
