@@ -29,12 +29,12 @@ def encode_ascii(content, encode_key):
         if value >= ACSII_a and value <= ACSII_z:
             value = value + delt_value
             if value > ACSII_z:
-                value = ACSII_a + (value - ACSII_z)
+                value = ACSII_a + (value - ACSII_z - 1)
             pass
         elif value >= ACSII_A and value <= ACSII_Z:
             value = value + delt_value
             if value > ACSII_Z:
-                value = ACSII_A + (value - ACSII_Z)
+                value = ACSII_A + (value - ACSII_Z - 1)
             pass
 
         new_content = new_content + str(chr(value))
@@ -62,21 +62,29 @@ def decode_ascii(content, encode_key):
         if value >= ACSII_a and value <= ACSII_z:
             value = value - delt_value
             if value < ACSII_a:
-                value = ACSII_z - (ACSII_a - value)
+                value = ACSII_z - (ACSII_a - value - 1)
             pass
         elif value >= ACSII_A and value <= ACSII_Z:
             value = value - delt_value
             if value < ACSII_A:
-                value = ACSII_Z - (ACSII_A - value)
+                value = ACSII_Z - (ACSII_A - value - 1)
             pass
         
         new_content = new_content + str(chr(value))
     
     return new_content
 
-# sample
-# content = "WhoIsYourDady"
-# print "content : " + content
-# encode_str = Utils.encode_ascii(content, "test")
-# print "encode :" + encode_str
-# print "decode :" + Utils.decode_ascii(encode_str, "test")
+
+
+if __name__ == '__main__':
+    func_type = sys.argv[1]
+    content = sys.argv[2]
+    key = sys.argv[3]
+
+    if func_type == 'encode':
+        print(encode_ascii(content, key))
+    elif func_type == 'decode':
+        print(decode_ascii(content, key))
+
+# usage
+# python code.py encode abcdefghijklmnopqrstuvwxyz test
